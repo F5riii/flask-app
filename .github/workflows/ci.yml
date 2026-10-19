@@ -30,3 +30,6 @@ jobs:
 
       - name: Run tests
         run: python -m pytest -v
+      
+      - name: Simulate deployment
+        run: 'echo "Deployment simulation: All tests passed successfully. Ready for deployment."'
