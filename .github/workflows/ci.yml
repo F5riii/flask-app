@@ -31,10 +31,29 @@ jobs:
       - name: Run tests
         run: python -m pytest -v
       
+      - name: Create build file
+        run: 'echo "Flask build created after tests" > build.txt'
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: flask-build
+          path: build.txt
+          if-no-files-found: error
+          retention-days: 1
+
   deploy:
-    needs: test
     runs-on: ubuntu-latest
+    needs: test
 
     steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: flask-build
+
+      - name: Read build file
+        run: cat build.txt
+
       - name: Simulate deployment
-        run: echo "Deployment step (simulated)"
+        run: 'echo "Deployment would start here"'
