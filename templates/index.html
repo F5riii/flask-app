@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}{{ pagetitle }}{% endblock %}
+
+{% block meta_description %}
+Explore my Linux administration, DevOps learning journey,
+technical projects, and practical labs.
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container hero-content">
+
+        <p class="eyebrow">LINUX ADMINISTRATION & DEVOPS</p>
+
+        <h1>
+            Building my skills through
+            <span>practical engineering.</span>
+        </h1>
+
+        <p class="hero-description">
+            Hello! I'm a computer science learner focused on Linux
+            administration and DevOps. I enjoy understanding how systems
+            work, troubleshooting technical problems, and building
+            practical projects.
+        </p>
+
+        <div class="hero-actions">
+            <a class="button button-primary"
+               href="{{ url_for('about') }}">
+                About Me
+            </a>
+
+            <a class="button button-secondary"
+               href="#learning">
+                Explore My Skills
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section container" id="learning">
+    <div class="section-heading">
+        <p class="eyebrow">MY APPROACH</p>
+        <h2>How I think and learn</h2>
+        <p>
+            I focus on understanding the reason behind a problem,
+            collecting evidence, and testing solutions carefully.
+        </p>
+    </div>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+            <h3>Understand</h3>
+            <p>
+                I learn the concepts behind Linux, networking,
+                services, permissions, and infrastructure.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Investigate</h3>
+            <p>
+                When something fails, I check logs, service status,
+                configuration, permissions, and system behavior
+                before changing anything.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Practice</h3>
+            <p>
+                I build labs and technical projects to turn theory
+                into practical skills and improve my troubleshooting.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">CURRENT FOCUS</p>
+            <h2>What I'm working toward</h2>
+        </div>
+
+        <ul class="focus-list">
+            <li>Linux system administration and troubleshooting</li>
+            <li>Bash scripting and automation</li>
+            <li>Networking, DNS, and web services</li>
+            <li>Git, Docker, and CI/CD fundamentals</li>
+            <li>Cloud infrastructure and DevOps tools</li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}
