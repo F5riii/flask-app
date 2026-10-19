@@ -31,5 +31,10 @@ jobs:
       - name: Run tests
         run: python -m pytest -v
       
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Simulate deployment
-        run: 'echo "Deployment simulation: All tests passed successfully. Ready for deployment."'
+        run: echo "Deployment step (simulated)"
