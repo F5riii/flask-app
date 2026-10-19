@@ -31,14 +31,15 @@ jobs:
       - name: Run tests
         run: python -m pytest -v
       
-      - name: Create build file
-        run: 'echo "Flask build created after tests" > build.txt'
+      - name:  Package Flask application
+        run: |
+          tar -czf flask-app.tar.gz app.py requirements.txt templates/ static/
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v7
         with:
           name: flask-build
-          path: build.txt
+          path: flask-app.tar.gz
           if-no-files-found: error
           retention-days: 1
 
@@ -52,8 +53,8 @@ jobs:
         with:
           name: flask-build
 
-      - name: Read build file
-        run: cat build.txt
+      - name: Verify package contents
+        run: tar -tzf flask-app.tar.gz
 
       - name: Simulate deployment
-        run: 'echo "Deployment would start here"'
+        run: 'echo "Flask package verified; deployment would start here"'
